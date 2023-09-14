@@ -10,10 +10,14 @@ import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.JTextField;
+
+import clases.ConexionBD;
+import clases.Reserva;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.sql.Date;
 import java.text.Format;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -37,6 +41,8 @@ public class ReservasView extends JFrame {
 	int xMouse, yMouse;
 	private JLabel labelExit;
 	private JLabel labelAtras;
+	private ConexionBD conexionBD = new ConexionBD();
+
 
 	/**
 	 * Launch the application.
@@ -296,13 +302,25 @@ public class ReservasView extends JFrame {
 		btnsiguiente.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (ReservasView.txtFechaEntrada.getDate() != null && ReservasView.txtFechaSalida.getDate() != null) {		
-					RegistroHuesped registro = new RegistroHuesped();
-					registro.setVisible(true);
+				if (ReservasView.txtFechaEntrada.getDate() != null && ReservasView.txtFechaSalida.getDate() != null) {
+					Reserva reserva = new Reserva();
+					reserva.setFechaEntrada(new Date(ReservasView.txtFechaEntrada.getDate().getTime()));
+					reserva.setFechaSalida(new Date(ReservasView.txtFechaSalida.getDate().getTime()));
+					reserva.setValor(100.0);
+					reserva.setFormaPago(ReservasView.txtFormaPago.getSelectedItem().toString());
+
+					int idReserva = conexionBD.insertarReserva(reserva);
+
+					if (idReserva != -1) {
+						RegistroHuesped registro = new RegistroHuesped();
+						registro.setVisible(true);
+					} else {
+						JOptionPane.showMessageDialog(null, "Error al crear la reserva.");
+					}
 				} else {
 					JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
 				}
-			}						
+			}
 		});
 		btnsiguiente.setLayout(null);
 		btnsiguiente.setBackground(SystemColor.textHighlight);

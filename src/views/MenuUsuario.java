@@ -108,7 +108,7 @@ public class MenuUsuario extends JFrame {
 		panelMenu.add(btnRegistro);
 		btnRegistro.setLayout(null);
 		
-		labelRegistro = new JLabel("Registro de reservas");
+		labelRegistro = new JLabel("Registro de clases.reservas");
 		labelRegistro.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/reservado.png")));
 		labelRegistro.setForeground(SystemColor.text);
 		labelRegistro.setBounds(25, 11, 205, 34);
@@ -189,7 +189,7 @@ public class MenuUsuario extends JFrame {
 	    contentPane.add(panelFecha);
 	    panelFecha.setLayout(null);
 	    
-	    JLabel lblNewLabel_1 = new JLabel("Sistema de reservas Hotel Alura");
+	    JLabel lblNewLabel_1 = new JLabel("Sistema de clases.reservas Hotel Alura");
 	    lblNewLabel_1.setBounds(180, 11, 356, 42);
 	    panelFecha.add(lblNewLabel_1);
 	    lblNewLabel_1.setForeground(Color.WHITE);
@@ -209,14 +209,14 @@ public class MenuUsuario extends JFrame {
 	    lblNewLabel.setBounds(302, 234, 147, 46);
 	    contentPane.add(lblNewLabel);
 	    
-	    String textoDescripcion = "<html><body>Sistema de reserva de hotel. Controle y administre de forma óptima y fácil <br> el flujo de reservas y de huespédes del hotel   </body></html>";
+	    String textoDescripcion = "<html><body>Sistema de reserva de hotel. Controle y administre de forma óptima y fácil <br> el flujo de clases.reservas y de huespédes del hotel   </body></html>";
 	    JLabel labelDescripcion = new JLabel(textoDescripcion);
 	    labelDescripcion.setFont(new Font("Roboto", Font.PLAIN, 17));
 	   
 	    labelDescripcion.setBounds(312, 291, 598, 66);
 	    contentPane.add(labelDescripcion);
 	    
-	    String textoDescripcion1 = "<html><body> Esta herramienta le permitirá llevar un control completo y detallado de sus reservas y huéspedes, tendrá acceso a heramientas especiales para tareas específicas como lo son:</body></html>";
+	    String textoDescripcion1 = "<html><body> Esta herramienta le permitirá llevar un control completo y detallado de sus clases.reservas y huéspedes, tendrá acceso a heramientas especiales para tareas específicas como lo son:</body></html>";
 	    JLabel labelDescripcion_1 = new JLabel(textoDescripcion1);
 	    labelDescripcion_1.setFont(new Font("Roboto", Font.PLAIN, 17));
 	    labelDescripcion_1.setBounds(311, 345, 569, 88);
